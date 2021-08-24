@@ -39,4 +39,4 @@ task('deployFactory', 'Deploy Token Factory')
       console.error(e)
       console.log('----------------------')
     }
-})
+  })

@@ -14,7 +14,7 @@ task('createToken', 'Deploy Token Token')
     try {
       console.log('Creating Token...')
 
-      const { name, symbol, decimals, supply } = args;
+      const { name, symbol, decimals, supply } = args
       const factoryAddress = get(network.name as TokenFactoryNetwork, TokenFactoryConfigProperty.TokenFactoryAddress)
 
       const signer = (await ethers.getSigners())[0]
@@ -31,9 +31,9 @@ task('createToken', 'Deploy Token Token')
       // const filter = tokenFactory.filters.TokenCreated()
       const logs = await tokenFactory.queryFilter(receip.logs, 'latest')
       // // console.log({logs})
-      const log = logs.find(e => e.transactionHash === tx.hash && e.args?.owner === signer.address)
-      const newTokenAddress = log?.args?.tokenAddress;
-    
+      const log = logs.find((e) => e.transactionHash === tx.hash && e.args?.owner === signer.address)
+      const newTokenAddress = log?.args?.tokenAddress
+
       console.log('----------------------')
       console.log('SUCCESSFULLY DEPLOYED AT:')
       console.log(newTokenAddress)
@@ -55,4 +55,4 @@ task('createToken', 'Deploy Token Token')
       console.error(e)
       console.log('----------------------')
     }
-})
+  })
