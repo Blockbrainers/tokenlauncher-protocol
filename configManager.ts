@@ -32,4 +32,4 @@ export const remove = (network: TokenFactoryNetwork, property: TokenFactoryConfi
   saveJSON(network, obj)
 }
 
-const getFilename = (network: TokenFactoryNetwork) => `${__dirname}/config_${network}.json`
+const getFilename = (network: TokenFactoryNetwork) => `${__dirname}/tokenFactory.config_${network}.json`

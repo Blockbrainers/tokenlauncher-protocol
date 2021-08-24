@@ -5,6 +5,9 @@ import '@nomiclabs/hardhat-waffle'
 import '@nomiclabs/hardhat-etherscan'
 import { HardhatUserConfig } from 'hardhat/types/config'
 
+import './tasks/deployFactory'
+import './tasks/createToken'
+
 require('dotenv').config()
 const mnemonic = process.env.DEV_MNEMONIC || ''
 
@@ -22,7 +25,7 @@ const config: HardhatUserConfig = {
   solidity: {
     compilers: [
       {
-        version: '0.8.6',
+        version: '0.8.7',
         settings: {
           evmVersion: 'istanbul',
           optimizer: {
@@ -35,9 +38,9 @@ const config: HardhatUserConfig = {
   },
   networks: {
     [TokenFactoryNetwork.HARDHAT]: {
-      forking: {
-        url: 'https://bsc-dataseed.binance.org/',
-      },
+      // forking: {
+      //   url: 'https://mainnet.infura.io/v3/' + process.env.INFURA_ID,
+      // },
       accounts: {
         accountsBalance: '10000000000000000000000',
       },
