@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/olivierriccini/Desktop/Blockbrainers/projects/token-factory/contracts/TokenFactory.sol": {
-      "lastModificationDate": 1629819806230,
-      "contentHash": "5a00838d6b4006b87c6e4b205fd5cf73",
+      "lastModificationDate": 1629982919595,
+      "contentHash": "c885c3688eaddbf0fc5f67b913e2976d",
       "sourceName": "contracts/TokenFactory.sol",
       "solcConfig": {
         "version": "0.8.7",
@@ -30,8 +30,9 @@
       },
       "imports": [
         "@openzeppelin/contracts/utils/Context.sol",
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "./tokens/ERC20Basic.sol"
+        "./tokens/ERC20Basic.sol",
+        "@openzeppelin/contracts/proxy/Clones.sol",
+        "hardhat/console.sol"
       ],
       "versionPragmas": [
         "0.8.7"
@@ -76,8 +77,8 @@
       ]
     },
     "/Users/olivierriccini/Desktop/Blockbrainers/projects/token-factory/contracts/tokens/ERC20Basic.sol": {
-      "lastModificationDate": 1629818733690,
-      "contentHash": "26a91aacbff4053c283fbeb0b1ae3dee",
+      "lastModificationDate": 1629988538628,
+      "contentHash": "92f0f2b70ca71c92df3218cbda0e84d3",
       "sourceName": "contracts/tokens/ERC20Basic.sol",
       "solcConfig": {
         "version": "0.8.7",
@@ -103,7 +104,10 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "../cashier/ICashier.sol",
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "hardhat/console.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
@@ -221,6 +225,186 @@
       ],
       "artifacts": [
         "Context"
+      ]
+    },
+    "/Users/olivierriccini/Desktop/Blockbrainers/projects/token-factory/contracts/cashier/Cashier.sol": {
+      "lastModificationDate": 1629988400636,
+      "contentHash": "68c0f7d67a724e12a9ba49f1a1aa6ae8",
+      "sourceName": "contracts/cashier/Cashier.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/utils/Context.sol",
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "0.8.7"
+      ],
+      "artifacts": [
+        "Cashier"
+      ]
+    },
+    "/Users/olivierriccini/Desktop/Blockbrainers/projects/token-factory/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1629810269924,
+      "contentHash": "4fe56b59ced59d87df6b796758f62895",
+      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
+    "/Users/olivierriccini/Desktop/Blockbrainers/projects/token-factory/node_modules/@openzeppelin/contracts/proxy/Clones.sol": {
+      "lastModificationDate": 1629810271213,
+      "contentHash": "e8f1f04c46c67381a0b13f90439f9b41",
+      "sourceName": "@openzeppelin/contracts/proxy/Clones.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Clones"
+      ]
+    },
+    "/Users/olivierriccini/Desktop/Blockbrainers/projects/token-factory/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1629809333641,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "/Users/olivierriccini/Desktop/Blockbrainers/projects/token-factory/contracts/cashier/ICashier.sol": {
+      "lastModificationDate": 1629983509277,
+      "contentHash": "7f8b25312c47085b4a89365e1ac8507b",
+      "sourceName": "contracts/cashier/ICashier.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.7"
+      ],
+      "artifacts": [
+        "ICashier"
       ]
     }
   }

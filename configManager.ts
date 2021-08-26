@@ -3,6 +3,7 @@ import { TokenFactoryNetwork } from './hardhat.config'
 
 export enum TokenFactoryConfigProperty {
   TokenFactoryAddress = 'TokenFactoryAddress',
+  CashierAddress = 'CashierAddress',
 }
 
 const loadJSON = (network: TokenFactoryNetwork) => {

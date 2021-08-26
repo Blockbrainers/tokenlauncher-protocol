@@ -7,12 +7,14 @@ import { HardhatUserConfig } from 'hardhat/types/config'
 
 import './tasks/deployFactory'
 import './tasks/createToken'
+import './tasks/cashier'
 
 require('dotenv').config()
 const mnemonic = process.env.DEV_MNEMONIC || ''
 
 export enum TokenFactoryNetwork {
   HARDHAT = 'hardhat',
+  GANACHE = 'ganache',
   RINKEBY = 'rinkeby',
   MAINNET = 'mainnet',
   BSC_MAINNET = 'bsc-mainnet',
@@ -38,12 +40,15 @@ const config: HardhatUserConfig = {
   },
   networks: {
     [TokenFactoryNetwork.HARDHAT]: {
-      // forking: {
-      //   url: 'https://mainnet.infura.io/v3/' + process.env.INFURA_ID,
-      // },
+      forking: {
+        url: 'https://mainnet.infura.io/v3/' + process.env.INFURA_ID,
+      },
       accounts: {
         accountsBalance: '10000000000000000000000',
       },
+    },
+    [TokenFactoryNetwork.GANACHE]: {
+      url: 'http://127.0.0.1:8545'
     },
     [TokenFactoryNetwork.BSC_MAINNET]: {
       url: 'https://bsc-dataseed.binance.org/',
